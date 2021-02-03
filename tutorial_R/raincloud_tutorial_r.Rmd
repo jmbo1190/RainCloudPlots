@@ -25,6 +25,7 @@ if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
 ```
 
 ## How to make it rain
+
 This tutorial will walk you through the process of transforming your barplots into rainclouds, and also show you how to customize your rainclouds for various options such as ordinal or repeated measures data.
 
 If you'd like to see this notebook with the output rendered, checkout [raincloud_tutorial_r.md](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.md) or [raincloud_tutorial_r.pdf](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.pdf).
@@ -69,7 +70,7 @@ Lets look at the plot in line too :)
 (If you see the error `Error in grid.newpage() : could not open file ...` when running this tutorial in binder: don't worry! RStudio in binder is just a little slower than you'd hope to present the plot to you inline. Wait a couple of seconds and then run the cell again and the image will appear.)
 
 ```{r figure 1}
-p1
+print(p1)
 ```
 
 There we go - just needs some little asterixes and we're ready to publish! Just kidding. Let's start our first, most basic raincloud plot like so, using the 'geom_flat_violin' option our function already setup for us:
@@ -123,7 +124,7 @@ ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
 p4
 ```
 
-Now we need to add something to help us easily evaluate any possible differences between our groups or conditions. To achieve this, we'll add some boxplots to complete our raincloud plots. To get the boxplots to line up however we like, we need to set our x-axis to a numeric value, so we can add a fixed offset: 
+Now we need to add something to help us easily evaluate any possible differences between our groups or conditions. To achieve this, we'll add some boxplots to complete our raincloud plots. To get the boxplots to line up however we like, we need to set our x-axis to a numeric value, so we can add a fixed offset:
 
 ```{r, boxplot_rc, include = TRUE, echo = TRUE}
 #Rainclouds with boxplots
@@ -142,7 +143,7 @@ ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
 p5
 ```
 
-Now we'll make a few aesthetic tweaks. You may want to turn these on or off depending on your preferences. We'll take the black outline away from the plots by adding the colour = group parameter, and we'll also change colour palettes using the built-in colour brewer tool. 
+Now we'll make a few aesthetic tweaks. You may want to turn these on or off depending on your preferences. We'll take the black outline away from the plots by adding the colour = group parameter, and we'll also change colour palettes using the built-in colour brewer tool.
 
 ```{r, colour_rc, include = TRUE, echo = TRUE}
 #Rainclouds with boxplots
@@ -284,7 +285,7 @@ ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
 p10
 ```
 
-Finally, you may want to add traditional line plots to emphasize factorial interactions and main effects. Here we've plotted the mean and standard error for each cell of our design, and connected these with a hashed line. There are a lot of possible options though, so you'll need to decide what works best for your needs: 
+Finally, you may want to add traditional line plots to emphasize factorial interactions and main effects. Here we've plotted the mean and standard error for each cell of our design, and connected these with a hashed line. There are a lot of possible options though, so you'll need to decide what works best for your needs:
 
 ```{r, repdata3, include = TRUE, echo = TRUE}
 #Rainclouds for repeated measures, additional plotting options 
@@ -307,7 +308,7 @@ ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
 p11
 ```
 
-Here is the same plot, but with the grouping variable flipped: 
+Here is the same plot, but with the grouping variable flipped:
 
 ```{r, repdata4, include = TRUE, echo = TRUE}
 #Rainclouds for repeated measures, additional plotting options 
@@ -330,6 +331,5 @@ ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
 ```{r figure 12}
 p12
 ```
-
 
 That's it! We hope you'll be able to use this tutorial to find great illustrations for your data, and that we've given you an idea of some of the different ways you can customize your raincloud plots.
